@@ -216,7 +216,7 @@ function resizeCanvas() {
 }
 
 // Add window resize event listener
-window.addEventListener('resize', resizeCanvas);
+window.addEventListener('resize', resizeCanvas); 
 
 let drawing = false;
 
@@ -257,6 +257,9 @@ ws.onmessage = (msg) => {
     }
     else if (data.type == "stop"){
         ctx.closePath();
+    }
+    else if (data.type === 'erase') {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
     }
 }
 
@@ -313,6 +316,13 @@ function joinRoom() {
 
 function goHome() {
     window.location.href = "/";
+}
+
+function erase() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    // to send or to not send erase command to other users ?? 
+    
 }
 
 function getRoomId() {
