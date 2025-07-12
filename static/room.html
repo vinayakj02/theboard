@@ -52,9 +52,25 @@
             color: #f4f3ee;
             transform: translateY(-2px);
         }
+        .room-id {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #ffffff;
+            border: 1px solid #2d2d2d;
+            padding: 12px 20px;
+            font-size: 16px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            color: #2d2d2d;
+            box-shadow: 4px 4px 0 #2d2d2d;
+            z-index: 1000;
+        }
     </style>
 </head>
 <body>
+    <div class="room-id" id="roomIdDisplay">You're in <span id="roomId"></span></div>
     <canvas id="board"></canvas>
     <script src="/static/app.js"></script>
     <div class="menu" style="position: fixed; bottom: 20px; right: 20px;">
@@ -64,5 +80,6 @@
     <div class="menu" style="position: fixed; top: 20px; right: 20px;">
         <button onclick="goHome()">home</button>
     </div>
+    
 </body>
 </html>
