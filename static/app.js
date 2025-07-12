@@ -209,6 +209,15 @@ const ctx = canvas.getContext('2d');
 canvas.width = window.innerWidth - 40;
 canvas.height = window.innerHeight - 40;
 
+// Function to resize canvas
+function resizeCanvas() {
+    canvas.width = window.innerWidth - 40;
+    canvas.height = window.innerHeight - 40;
+}
+
+// Add window resize event listener
+window.addEventListener('resize', resizeCanvas);
+
 let drawing = false;
 
 // Connect to websocket using room ID from URL path
