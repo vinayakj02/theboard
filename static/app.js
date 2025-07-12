@@ -212,7 +212,16 @@ canvas.height = window.innerHeight - 40;
 let drawing = false;
 
 // Connect to websocket using room ID from URL path
-const roomId = window.location.pathname.substring(1); // Remove leading slash
+const roomId = window.location.pathname.substring(1); // just removing leading slash
+
+document.addEventListener('DOMContentLoaded', function() {
+    const roomIdElement = document.getElementById('roomId');
+    if (roomIdElement) {
+        roomIdElement.textContent = roomId || 'No Room';
+    }
+});
+
+
 const ws = new WebSocket(`ws://127.0.0.1:1234/ws/default/${roomId}`);
 
 ws.onopen = () => {
@@ -295,4 +304,8 @@ function joinRoom() {
 
 function goHome() {
     window.location.href = "/";
+}
+
+function getRoomId() {
+    return window.location.pathname.substring(1); // Remove leading slash
 }
