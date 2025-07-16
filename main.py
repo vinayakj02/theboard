@@ -10,7 +10,7 @@ app = FastAPI()
 app.mount("/static", StaticFiles(directory = "static"), name = "static")
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Allow all origins (use caution in prod)
+    allow_origins=["*"],  
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -46,4 +46,4 @@ async def websocket_endpoint(room_id, websocket: WebSocket):
 
 
 if __name__ == "__main__":
-    uvicorn.run(app, host="localhost", port = 1234)
+    uvicorn.run(app, host="0.0.0.0", port = 1234)
